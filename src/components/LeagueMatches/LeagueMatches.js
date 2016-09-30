@@ -92,25 +92,34 @@ export default class LeagueMatches extends Component {
         return (
             <div>
                 <form onSubmit={this.handleMatchCreate}>
-                    <select value={selectedPlayerA} onChange={this.handlePlayerASelect}>
-                        <option/>
-                        {players.map((player, i) => {
-                            return (
-                                <option key={i}>{player.name}</option>
-                            );
-                        })}
-                    </select>
-                    <input value={playerAScore} type="number" onChange={this.handlePlayerAScoreUpdate} />
+                    <label>
+                        <select value={selectedPlayerA} onChange={this.handlePlayerASelect}>
+                            <option/>
+                            {players.map((player, i) => {
+                                return (
+                                    <option key={i}>{player.name}</option>
+                                );
+                            })}
+                        </select>
+                    </label>
+
+                    <label>
+                        <input value={playerAScore} type="number" required onChange={this.handlePlayerAScoreUpdate} />
+                    </label>
                     {' - '}
-                    <input value={playerBScore} type="number" onChange={this.handlePlayerBScoreUpdate} />
-                    <select value={selectedPlayerB} onChange={this.handlePlayerBSelect}>
-                        <option/>
-                        {players.map((player, i) => {
-                            return (
-                                <option key={i}>{player.name}</option>
-                            );
-                        })}
-                    </select>
+                    <label>
+                        <input value={playerBScore} type="number" required onChange={this.handlePlayerBScoreUpdate} />
+                    </label>
+                    <label>
+                        <select value={selectedPlayerB} onChange={this.handlePlayerBSelect}>
+                            <option/>
+                            {players.map((player, i) => {
+                                return (
+                                    <option key={i}>{player.name}</option>
+                                );
+                            })}
+                        </select>
+                    </label>
                     <button>Create</button>
                 </form>
                 {this.renderMatches(matches)}
@@ -123,12 +132,24 @@ export default class LeagueMatches extends Component {
             return (
                 <div key={index}>
                     <span>{match.playerA.name}</span>
+                    {' '}
                     <span>{match.playerA.score}</span>
                     {' - '}
                     <span>{match.playerB.score}</span>
+                    {' '}
                     <span>{match.playerB.name}</span>
+                    <button value={index} onClick={this.handleDeleteMatch}>Delete</button>
                 </div>
             );
         })
+    }
+
+    handleDeleteMatch(event) {
+        const leagues = cloneDeep(store.data.leagues);
+        leagues[this.props.params.index].matches.splice(event.target.value, 1);
+
+        store.setState({
+            leagues
+        });
     }
 }
