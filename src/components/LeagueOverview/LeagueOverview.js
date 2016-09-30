@@ -19,8 +19,6 @@ export default class LeagueOverview extends Component {
         store.removeCallback(this.updateState);
     }
 
-
-
     updateState(){
         this.setState({
             league: store.data.leagues[this.props.params.index]
@@ -34,6 +32,9 @@ export default class LeagueOverview extends Component {
         return (
             <div>
                 <League name={name} />
+                <Link to={`/league-overview/${this.props.params.index}/league-players`}>Players </Link>
+                <Link>Matches </Link>
+                <Link>Teams </Link>
                 {this.props.children}
             </div>
         )

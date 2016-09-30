@@ -11,7 +11,8 @@ export default {
     data:{
         leagues: [
             {
-                name: 'Bob'
+                name: 'Bob',
+                players: []
             }
         ]
     },

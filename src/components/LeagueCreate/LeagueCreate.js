@@ -14,16 +14,17 @@ export default class LeagueCreate extends Component {
     }
 
     handleChange(e){
-        this.setState({name: e.target.value});
+        this.setState({ name: e.target.value });
     }
 
     handleSubmit(e){
         e.preventDefault();
-        const league = this.state;
+        const league = { name: this.state.name, players: [] };
 
         store.setState({
             leagues: store.data.leagues.concat(league)
         });
+        this.props.history.push(`/league-overview/${store.data.leagues.length - 1}`);
     }
 
     render() {
