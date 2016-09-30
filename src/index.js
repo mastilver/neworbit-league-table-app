@@ -5,6 +5,7 @@ import './index.css';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import LeagueList from './components/LeagueList/LeagueList';
 import LeagueCreate from './components/LeagueCreate/LeagueCreate';
+import LeagueOverview from './components/LeagueOverview/LeagueOverview';
 import store from './store';
 
 function renderApp(){
@@ -13,6 +14,7 @@ function renderApp(){
             <Route path="/" component={App}>
                 <IndexRoute component={LeagueList} />
                 <Route path="/league-create" component={LeagueCreate} />
+                <Route path="/league-overview/:index" component={LeagueOverview} />
             </Route>
         </Router>,
         document.getElementById('root')

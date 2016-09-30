@@ -16,10 +16,16 @@ export default class LeagueCreate extends Component {
     handleChange(e){
         this.setState({name: e.target.value});
     }
+
     handleSubmit(e){
         e.preventDefault();
-        console.log(this.state);
+        const league = this.state;
+
+        store.setState({
+            leagues: store.data.leagues.concat(league)
+        });
     }
+
     render() {
         return (
             <div>
