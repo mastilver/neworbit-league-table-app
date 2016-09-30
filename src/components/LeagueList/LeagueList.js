@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import autobind from 'auto-bind';
 import { Link } from 'react-router';
+import store from '../../store';
 
 import League from '../League/League';
 
@@ -10,16 +11,25 @@ export default class LeagueList extends Component {
         autobind(this);
     }
 
-    render() {
-        const leagues = [
-            {name: 'Bob'},
-            {name: 'Double'}
-        ];
+    componentWillMount() {
+        store.addCallback(this.updateState);
+    }
 
+    componentWillUnmount() {
+        store.removeCallback(this.updateState);
+    }
+
+    updateState(){
+        this.setState({
+            leagues: store.data.leagues
+        })
+    }
+
+    render() {
         return(
             <div>
                 <div>
-                    {this.renderLeagues(leagues)}
+                    {this.renderLeagues(this.state.leagues)}
                 </div>
                 <div>
                     <Link to="/league-create">Create</Link>
@@ -30,7 +40,7 @@ export default class LeagueList extends Component {
 
     renderLeagues (leagues) {
         if(leagues.length) {
-            return leagues.map(league => <League name={league.name} />);
+            return leagues.map((league, index) => <League key={index} name={league.name} />);
         }
 
         return(
