@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import './App.css';
+import LeagueList from '../LeagueList/LeagueList';
 
 class App extends Component {
   render() {
+    const leagues = [
+            {name: 'Bob'},
+            {name: 'Double'}
+        ];
     return (
       <div className="App">
         <div className="App-header">
@@ -13,6 +18,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <LeagueList leagues={leagues} />
       </div>
     );
   }
