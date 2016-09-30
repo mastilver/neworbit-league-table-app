@@ -27,7 +27,6 @@ export default class LeagueOverview extends Component {
 
     render() {
         const name = this.state.league.name;
-        console.log(this.state);
 
         return (
             <div>
