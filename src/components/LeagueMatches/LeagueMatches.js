@@ -104,11 +104,11 @@ export default class LeagueMatches extends Component {
                     </label>
 
                     <label>
-                        <input value={playerAScore} type="number" onChange={this.handlePlayerAScoreUpdate} />
+                        <input value={playerAScore} type="number" required onChange={this.handlePlayerAScoreUpdate} />
                     </label>
                     {' - '}
                     <label>
-                        <input value={playerBScore} type="number" onChange={this.handlePlayerBScoreUpdate} />
+                        <input value={playerBScore} type="number" required onChange={this.handlePlayerBScoreUpdate} />
                     </label>
                     <label>
                         <select value={selectedPlayerB} onChange={this.handlePlayerBSelect}>
