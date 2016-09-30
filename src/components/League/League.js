@@ -11,7 +11,7 @@ export default class League extends Component {
     render() {
         const name = this.props.name;
         return (
-            <div>
+            <div style={{ height: '50px', display: 'inline-block' }}>
                 {name}
             </div>
         );

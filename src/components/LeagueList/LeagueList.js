@@ -42,10 +42,12 @@ export default class LeagueList extends Component {
     renderLeagues (leagues) {
         if(leagues.length) {
             return leagues.map((league, index) => 
-                <Link to={`/league-overview/${index}`} key={index}>
-                    <img src={league.image} alt="League avatar" style={{ height: '50px' }} />
-                    <League key={index} name={league.name} /><button key={`delete${index}`} value={index} onClick={this.handleClickDeleteLeague}>Delete</button>
-                </Link>
+                <div>
+                    <Link to={`/league-overview/${index}`} key={index}>
+                        <img src={league.image} alt="League avatar" style={{ height: '50px', display: 'inline-block' }} />
+                        <League key={index} name={league.name} /><button key={`delete${index}`} value={index} onClick={this.handleClickDeleteLeague}>Delete</button>
+                    </Link>
+                </div>
             );
         }
 
