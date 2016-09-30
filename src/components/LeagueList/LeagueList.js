@@ -54,6 +54,7 @@ export default class LeagueList extends Component {
     }
 
     handleClickDeleteLeague(event) {
+        event.preventDefault();
         const leagues =  cloneDeep(store.data.leagues);
         leagues.splice(event.target.value, 1);
         store.setState({
