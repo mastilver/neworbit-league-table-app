@@ -7,11 +7,11 @@ import LeagueList from './components/LeagueList/LeagueList';
 import LeagueCreate from './components/LeagueCreate/LeagueCreate';
 
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={LeagueList} />
-      <Route path="/league-create" component={LeagueCreate} />
-    </Route>
-  </Router>,
-  document.getElementById('root')
+    <Router history={browserHistory}>
+        <Route path="/" component={App}>
+            <IndexRoute component={LeagueList} />
+            <Route path="/league-create" component={LeagueCreate} />
+        </Route>
+    </Router>,
+    document.getElementById('root')
 );

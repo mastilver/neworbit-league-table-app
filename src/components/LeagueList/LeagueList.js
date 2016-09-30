@@ -16,7 +16,7 @@ export default class LeagueList extends Component {
             {name: 'Double'}
         ];
 
-         return(
+        return(
             <div>
                 <div>
                     {this.renderLeagues(leagues)}

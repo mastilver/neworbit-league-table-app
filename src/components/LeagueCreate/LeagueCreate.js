@@ -17,11 +17,10 @@ export default class LeagueCreate extends Component {
                     <Link to="/">Back</Link>
                 </div>
                 <div>
-                    Name: 
+                    Name:
                     <input type="text" />
                 </div>
             </div>
         );
     }
-
 }

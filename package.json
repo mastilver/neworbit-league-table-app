@@ -27,6 +27,9 @@
     "now-start": "pushstate-server build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+        "indent": ["error", 4]
+    }
   }
 }
