@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import store from '../../store';
 
 import League from '../League/League';
+import { cloneDeep, remove } from 'lodash'
 
 export default class LeagueList extends Component {
     constructor(...args){
@@ -40,11 +41,24 @@ export default class LeagueList extends Component {
 
     renderLeagues (leagues) {
         if(leagues.length) {
-            return leagues.map((league, index) => <League key={index} name={league.name} />);
+            return leagues.map((league, index) => 
+                <div>
+                    <League key={index} name={league.name} /><button key={`delete${index}`} value={index} onClick={this.handleClickDeleteLeague}>Delete</button>
+                </div>
+            );
         }
 
         return(
             <div>There be no leagues</div>
         )
     }
+
+    handleClickDeleteLeague(event) {
+        const leagues =  cloneDeep(store.data.leagues);
+        leagues.splice(event.target.value, 1);
+        store.setState({
+            leagues: leagues
+        });
+    }
+
 }
