@@ -8,7 +8,10 @@ export default class LeagueList extends Component {
     }
 
      render() {
-         const leagues = this.props.leagues;
+         const leagues = [
+            {name: 'Bob'},
+            {name: 'Double'}
+        ];
 
          return(
              <div>
