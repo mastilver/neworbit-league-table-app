@@ -11,12 +11,7 @@ export default {
     },
     callbacks:[],
     data: JSON.parse(window.localStorage.getItem('leagues-data')) || {
-        leagues: [
-            {
-                name: 'Bob',
-                players: []
-            }
-        ]
+        leagues: []
     },
     addCallback(cb){
         this.callbacks.push(cb);
