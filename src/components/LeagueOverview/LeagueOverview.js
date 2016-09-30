@@ -32,8 +32,8 @@ export default class LeagueOverview extends Component {
             <div>
                 <League name={name} />
                 <Link to={`/league-overview/${this.props.params.index}/league-players`}>Players </Link>
-                <Link>Matches </Link>
-                <Link>Teams </Link>
+                <Link to={`/league-overview/${this.props.params.index}/league-matches`}>Matches </Link>
+                <Link to={`/league-overview/${this.props.params.index}/league-table`}>Table </Link>
                 {this.props.children}
             </div>
         )

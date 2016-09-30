@@ -19,7 +19,11 @@ export default class LeagueCreate extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        const league = { name: this.state.name, players: [] };
+        const league = {
+            name: this.state.name,
+            players: [],
+            matches: []
+        };
 
         store.setState({
             leagues: store.data.leagues.concat(league)

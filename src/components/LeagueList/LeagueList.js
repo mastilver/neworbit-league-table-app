@@ -40,7 +40,11 @@ export default class LeagueList extends Component {
 
     renderLeagues (leagues) {
         if(leagues.length) {
-            return leagues.map((league, index) => <League key={index} name={league.name} />);
+            return leagues.map((league, index) => (
+                <Link to={`/league-overview/${index}`}>
+                    <League key={index} name={league.name} />
+                </Link>
+            ));
         }
 
         return(

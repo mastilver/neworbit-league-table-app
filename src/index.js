@@ -7,6 +7,7 @@ import LeagueList from './components/LeagueList/LeagueList';
 import LeagueCreate from './components/LeagueCreate/LeagueCreate';
 import LeagueOverview from './components/LeagueOverview/LeagueOverview';
 import LeaguePlayers from './components/LeaguePlayers/LeaguePlayers';
+import LeagueMatches from './components/LeagueMatches/LeagueMatches';
 import store from './store';
 
 function renderApp(){
@@ -17,6 +18,7 @@ function renderApp(){
                 <Route path="/league-create" component={LeagueCreate} />
                 <Route path="/league-overview/:index" component={LeagueOverview}>
                     <Route path="league-players" component={LeaguePlayers} />
+                    <Route path="league-matches" component={LeagueMatches} />
                 </Route>
             </Route>
         </Router>,
