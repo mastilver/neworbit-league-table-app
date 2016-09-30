@@ -8,18 +8,30 @@ export default class LeagueCreate extends Component {
     constructor(...args) {
         super();
         autobind(this);
+
+        this.state = {name:""};
     }
 
+    handleChange(e){
+        this.setState({name: e.target.value});
+    }
+    handleSubmit(e){
+        e.preventDefault();
+        console.log(this.state);
+    }
     render() {
         return (
             <div>
                 <div>
                     <Link to="/">Back</Link>
                 </div>
-                <div>
-                    Name:
-                    <input type="text" />
-                </div>
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Name:
+                        <input type="text" value={this.state.name} onChange={this.handleChange}/>
+                    </label>
+                    <button type="submit">save</button>
+                </form>
             </div>
         );
     }
