@@ -138,8 +138,18 @@ export default class LeagueMatches extends Component {
                     <span>{match.playerB.score}</span>
                     {' '}
                     <span>{match.playerB.name}</span>
+                    <button value={index} onClick={this.handleDeleteMatch}>Delete</button>
                 </div>
             );
         })
+    }
+
+    handleDeleteMatch(event) {
+        const leagues = cloneDeep(store.data.leagues);
+        leagues[this.props.params.index].matches.splice(event.target.value, 1);
+
+        store.setState({
+            leagues
+        });
     }
 }
