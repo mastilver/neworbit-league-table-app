@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import autobind from 'auto-bind';
 
 import { Link } from 'react-router';
+import store from '../../store';
 
 export default class LeagueCreate extends Component {
 
