@@ -10,7 +10,8 @@ export default class LeagueTable extends Component {
         autobind(this);
 
         this.state = {
-            scores: []
+            scores: [],
+            filter: "points"
         };
     }
 
@@ -30,27 +31,32 @@ export default class LeagueTable extends Component {
 
     render() {
         const scores = this.state.scores;
-
-        console.log(scores);
+        const filter = this.state.filter;
 
         return(
             <div>
                 <table>
                     <tr>
                         <th>Players</th>
-                        <th>Points</th>
-                        <th>Win</th>
-                        <th>Draw</th>
-                        <th>Lose</th>
+                        <th onClick={() => this.changeFilter("points")}>Points</th>
+                        <th onClick={() => this.changeFilter("win")}>Win</th>
+                        <th onClick={() => this.changeFilter("draw")}>Draw</th>
+                        <th onClick={() => this.changeFilter("lose")}>Lose</th>
                     </tr>
-                    {this.renderScores(scores)}
+                    {this.renderScores(scores, filter)}
                 </table>
             </div>
         );
     }
 
-    renderScores(scores) {
-        return sortBy(scores, score => 1 / score.points).map((score, index) => {
+    changeFilter(filterName) {
+        this.setState({
+            filter: filterName
+        })
+    }
+
+    renderScores(scores, filter) {
+        return sortBy(scores, score => 1 / score[filter]).map((score, index) => {
             return(
                 <tr>
                     <td>{score.name}</td>
