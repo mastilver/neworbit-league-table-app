@@ -30,6 +30,7 @@ export default class LeagueOverview extends Component {
 
         return (
             <div>
+                <Link to="/">Back to leagues</Link>
                 <League name={name} />
                 <Link to={`/league-overview/${this.props.params.index}/league-players`}>Players </Link>
                 <Link to={`/league-overview/${this.props.params.index}/league-matches`}>Matches </Link>
