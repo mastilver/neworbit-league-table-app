@@ -7,8 +7,11 @@ import LeagueList from './components/LeagueList/LeagueList';
 import LeagueCreate from './components/LeagueCreate/LeagueCreate';
 import LeagueOverview from './components/LeagueOverview/LeagueOverview';
 import LeaguePlayers from './components/LeaguePlayers/LeaguePlayers';
+<<<<<<< Updated upstream
 import LeagueMatches from './components/LeagueMatches/LeagueMatches';
+=======
 import LeagueTable from './components/LeagueTable/LeagueTable';
+>>>>>>> Stashed changes
 import store from './store';
 
 function renderApp(){
@@ -19,8 +22,11 @@ function renderApp(){
                 <Route path="/league-create" component={LeagueCreate} />
                 <Route path="/league-overview/:index" component={LeagueOverview}>
                     <Route path="league-players" component={LeaguePlayers} />
+<<<<<<< Updated upstream
                     <Route path="league-matches" component={LeagueMatches} />
+=======
                     <Route path="league-table" component={LeagueTable} />
+>>>>>>> Stashed changes
                 </Route>
             </Route>
         </Router>,
